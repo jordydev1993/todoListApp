@@ -34,5 +34,12 @@ const toggleDeleteAllBtn = () => {
     deleteAllBtn.classList.remove("hidden");
 };
 
+//Funcion para eliminar todas las tareas
+const deleteAllTasks = () => {
+  taskList = [];
+  renderTaskList();
+};
+
+
 
 
