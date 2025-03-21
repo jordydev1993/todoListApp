@@ -20,13 +20,19 @@ const createTask = (task) =>
   `<li>${task.name}<img src="./img/delete.svg" alt="delete" class="delete-btn"></li>`
 
 //Funcion que renderiza las tareas
-const renderTaskList = () => {
-  tasksContainer.innerHTML = taskList.map(createTask).join("");
+// el join es para que se renderice cada tarea en una linea sin las ","
+const renderTaskList = () => { 
+  tasksContainer.innerHTML = taskList.map(createTask(task)).join("");
 };
 
-//Definimos el evento del formulario
-addform.addEventListener("submit", (e) => {
-  e.preventDefault();
-  console.log(taskInput.value);
-});
+//Funcion de ocultar el boton de eliminar todas las tareas
+const toggleDeleteAllBtn = () => {
+  if (!taskList.length) {// si no hay tareas, se oculta el boton. evalua que no exista length, es decir que el array este vacio
+    deleteAllBtn.classList.add("hidden");
+    return; // si no hay tareas, se sale de la funcion. Corta todo el bloque de ejecucion
+  } 
+    deleteAllBtn.classList.remove("hidden");
+};
+
+
 
